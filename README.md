@@ -2,7 +2,7 @@
 
 > 생성형 AI에 대한 학생들의 비판적 사고 및 기초 소양(Literacy) 함양을 위한 인터랙티브 웹앱
 
-[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/username/ai-literacy-challenge)
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/hyunuk7642/ai-literacy-challenge)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -107,7 +107,7 @@ ai-literacy-challenge/
 
 1. **저장소 클론**
    ```bash
-   git clone https://github.com/username/ai-literacy-challenge.git
+   git clone https://github.com/hyunuk7642/ai-literacy-challenge.git
    cd ai-literacy-challenge
    ```
 
@@ -132,7 +132,7 @@ ai-literacy-challenge/
 3. Branch를 "main"으로 선택
 4. 저장 후 자동으로 배포됩니다
 
-**배포 URL**: `https://{사용자명}.github.io/{저장소명}/`
+**배포 URL**: `https://hyunuk7642.github.io/ai-literacy-challenge/`
 
 ## 📱 반응형 디자인
 
@@ -235,10 +235,10 @@ ai-literacy-challenge/
 ## 📞 지원 및 기여
 
 ### 버그 리포트
-버그를 발견하셨나요? [Issues](https://github.com/username/ai-literacy-challenge/issues)에서 리포트해주세요.
+버그를 발견하셨나요? [Issues](https://github.com/hyunuk7642/ai-literacy-challenge/issues)에서 리포트해주세요.
 
 ### 기능 제안
-새로운 기능 아이디어가 있으신가요? [Discussions](https://github.com/username/ai-literacy-challenge/discussions)에서 제안해주세요.
+새로운 기능 아이디어가 있으신가요? [Discussions](https://github.com/hyunuk7642/ai-literacy-challenge/discussions)에서 제안해주세요.
 
 ### 기여하기
 1. Fork the Project
@@ -263,7 +263,7 @@ ai-literacy-challenge/
 
 ---
 
-**프로젝트 저장소**: [GitHub](https://github.com/username/ai-literacy-challenge)  
+**프로젝트 저장소**: [GitHub](https://github.com/hyunuk7642/ai-literacy-challenge)  
 **라이선스**: MIT  
 **지원**: 교육 목적으로 자유롭게 사용 및 수정 가능
 
