@@ -174,6 +174,16 @@
                 <div class="completion-content">
                     <div class="completion-message">
                         <p>이 웹앱을 통해 학생들은 생성형 AI에 대한 막연한 환상이나 공포에서 벗어나, 그 결과물을 비판적으로 수용하고 합리적으로 판단하는 <strong>기초 소양(Literacy)</strong>을 자기주도적으로 함양할 수 있을 것입니다. 또한, 지식 전달을 넘어 '생각하는 방법'을 훈련함으로써 다른 디지털 콘텐츠를 접할 때도 비판적 사고를 적용하는 태도를 기를 수 있습니다.</p>
+                        
+                        <div class="meaningful-quote">
+                            <p><strong>AI가 아닌, 사람이 중심이 되는 세상을 만드는 힘 —<br>
+                            그 시작은 바로 여러분의 판단력과 책임감입니다.</strong></p>
+                        </div>
+                        
+                        <div class="learning-buttons">
+                            <button class="learning-btn" onclick="showLearningModal('literacy')">AI 리터러시란</button>
+                            <button class="learning-btn" onclick="showLearningModal('attitude')">인공지능을 다루는 올바른 자세</button>
+                        </div>
                     </div>
                     
                     <div class="completion-buttons">
@@ -181,6 +191,24 @@
                         <button class="other-challenge-btn" id="other-challenge-btn" onclick="goToOtherChallenge()">다른 챌린지 알아보기</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 학습 모달 창 -->
+    <div id="learning-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">AI 리터러시란</h3>
+                <span class="close" onclick="closeLearningModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modal-content">
+                    <!-- 내용이 JavaScript로 동적으로 채워집니다 -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="back-btn" onclick="closeLearningModal()">뒤로 가기</button>
             </div>
         </div>
     </div>

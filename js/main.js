@@ -406,3 +406,65 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// 학습 모달 창 관련 함수들
+function showLearningModal(type) {
+    const modal = document.getElementById('learning-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    
+    if (type === 'literacy') {
+        modalTitle.textContent = 'AI 리터러시란';
+        modalContent.innerHTML = `
+            <p>AI 리터러시는 단순히 인공지능을 '잘 사용하는 기술'이 아니라,<br>
+            AI가 어떻게 만들어지고, 어떻게 판단하며, 우리 사회에 어떤 영향을 미치는지를 이해하고<br>
+            그 결과를 비판적으로 바라볼 수 있는 능력이에요.</p>
+            
+            <p><strong>AI 리터러시를 갖춘 사람은 다음과 같은 질문을 스스로 던질 수 있습니다.</strong></p>
+            
+            <ul>
+                <li>"이 결과는 어떻게 만들어진 걸까?"</li>
+                <li>"누가, 어떤 데이터를 이용해 훈련시켰을까?"</li>
+                <li>"이 기술은 모두에게 공평할까, 아니면 누군가에게 불리할까?"</li>
+            </ul>
+            
+            <p>이처럼 AI 리터러시는 기술을 단순히 '활용'하는 수준을 넘어,<br>
+            기술을 올바르게 판단하고 책임 있게 사용하는 힘을 기르는 것입니다.</p>
+        `;
+    } else if (type === 'attitude') {
+        modalTitle.textContent = '인공지능을 다루는 올바른 자세';
+        modalContent.innerHTML = `
+            <p>인공지능은 우리를 대신해 판단할 수도 있고, 정보를 만들어낼 수도 있습니다.<br>
+            그럴수록 우리는 AI의 판단을 그대로 믿기보다, 스스로 점검하고 검증하는 자세가 필요해요.<br>
+            AI가 틀릴 수도 있고, 누군가가 그 결과를 악의적으로 이용할 수도 있기 때문이죠.</p>
+            
+            <p>그래서 우리는 AI를 <strong>'비판적으로 신뢰하는 태도'</strong>를 가져야 합니다.<br>
+            즉, 무조건 의심하거나 무조건 믿는 것이 아니라,<br>
+            AI가 보여주는 결과의 근거를 이해하고, 그 한계를 인식하면서 사용하는 것입니다.</p>
+        `;
+    }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+}
+
+function closeLearningModal() {
+    const modal = document.getElementById('learning-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // 스크롤 복원
+}
+
+// 모달 외부 클릭 시 닫기
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('learning-modal');
+    if (event.target === modal) {
+        closeLearningModal();
+    }
+});
+
+// ESC 키로 모달 닫기
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLearningModal();
+    }
+});
