@@ -1,0 +1,33 @@
+{
+  "name": "ai-literacy-challenge",
+  "version": "1.2.0",
+  "description": "AI 리터러시 챌린지: 진짜? 가짜? - 생성형 AI에 대한 비판적 사고 함양을 위한 인터랙티브 웹앱",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "ai",
+    "literacy",
+    "education",
+    "challenge",
+    "interactive",
+    "web-app"
+  ],
+  "author": "AI Literacy Education Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/ai-literacy-challenge.git"
+  },
+  "homepage": "https://username.github.io/ai-literacy-challenge/",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
