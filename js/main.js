@@ -237,9 +237,9 @@ function showImageHint() {
 
 function showTextHint() {
     const hintText = document.getElementById('text-hint-text');
-    const levelHints = hints.text[`level${currentLevel}`];
-    const questionIndex = currentQuestionIndex % levelHints.length;
-    hintText.textContent = levelHints[questionIndex];
+    // 현재 문제의 구체적인 힌트 사용
+    const currentQuestion = textChallengeData[`level${currentLevel}`][currentQuestionIndex];
+    hintText.textContent = currentQuestion.hint;
 }
 
 // 챌린지 결과 표시
