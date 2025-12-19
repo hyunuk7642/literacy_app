@@ -11,74 +11,48 @@
 </head>
 <body>
     <div class="container">
-        <!-- Screen 1.0: 시작 및 유형 선택 화면 -->
+        <!-- Screen 1.0: 시작 화면 (텍스트 챌린지 자동 시작) -->
         <div id="home-screen" class="screen active">
             <div class="inner-content">
                 <div class="header">
                     <h1 class="main-title">AI 리터러시 챌린지</h1>
-                    <p class="subtitle">AI가 만든 콘텐츠, 구별할 수 있나요?</p>
+                    <p class="subtitle">
+                        생성형 AI의 한계와 가치, 사회적 영향을<br>
+                        비판적으로 평가하고 합리적으로 판단하는 능력을 기릅니다
+                    </p>
+                </div>
+                
+                <div class="welcome-message">
+                    <p>
+                        AI 생성 콘텐츠의 특징을 분석하고,<br>
+                        실제 사례를 통해 AI의 사회적 영향을<br>
+                        깊이 있게 이해해봅시다.
+                    </p>
                 </div>
                 
                 <div class="challenge-cards">
-                    <div class="challenge-card" onclick="startImageChallenge()">
-                        <div class="card-icon">🖼️</div>
-                        <h3>이미지 챌린지</h3>
-                        <p>AI vs 사람: 진짜 사진을 찾아라!</p>
-                    </div>
-                    
                     <div class="challenge-card" onclick="startTextChallenge()">
                         <div class="card-icon">📝</div>
                         <h3>텍스트 챌린지</h3>
-                        <p>진실 혹은 거짓: AI를 대하는 우리의 태도는!</p>
+                        <p>진실과 거짓을 판단하며<br>AI의 한계와 가치 이해하기</p>
+                    </div>
+                    
+                    <div class="challenge-card" onclick="startCaseStudyFromHome()">
+                        <div class="card-icon">🔍</div>
+                        <h3>사례 분석</h3>
+                        <p>실제 사례를 통해<br>AI의 사회적 영향을 이해하기</p>
+                        <div class="card-badge">3개 사례</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Screen 2.0: 이미지 챌린지 진행 화면 -->
-        <div id="image-challenge-screen" class="screen">
-            <div class="inner-content">
-                <div class="challenge-header">
-                    <h2>이미지 챌린지</h2>
-                    <div class="level-indicator">
-                        <span id="image-level">Level 1</span>
-                    </div>
-                </div>
-                
-                <div class="challenge-content">
-                    <div class="image-container">
-                        <img id="challenge-image" src="" alt="챌린지 이미지">
-                    </div>
-                    
-                    <div class="hint-section" id="image-hint-section" style="display: none;">
-                        <button class="hint-button" onclick="showImageHint()">힌트 보기</button>
-                        <div class="hint-text" id="image-hint-text"></div>
-                    </div>
-                    
-                    <div class="choice-buttons">
-                        <button class="choice-btn ai-btn" onclick="selectChoice('ai')">AI 생성</button>
-                        <button class="choice-btn real-btn" onclick="selectChoice('real')">실제</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="feedback-overlay" id="image-feedback-overlay">
-                <div class="feedback-card">
-                    <div class="feedback-content">
-                        <h3 id="feedback-title"></h3>
-                        <p id="feedback-text"></p>
-                        <div class="highlighted-image" id="highlighted-image"></div>
-                    </div>
-                    <button class="next-btn" onclick="nextImageChallenge()">다음 문제로</button>
-                </div>
-            </div>
-        </div>
 
         <!-- Screen 2.0: 텍스트 챌린지 진행 화면 -->
         <div id="text-challenge-screen" class="screen">
             <div class="inner-content">
                 <div class="challenge-header">
-                    <h2>텍스트 챌린지</h2>
+                    <h2>진실과 거짓 판단하기</h2>
                     <div class="level-indicator">
                         <span id="text-level">Level 1</span>
                     </div>
@@ -97,6 +71,11 @@
                     <div class="choice-buttons">
                         <button class="choice-btn truth-btn" onclick="selectChoice('true')">진실</button>
                         <button class="choice-btn false-btn" onclick="selectChoice('false')">거짓</button>
+                    </div>
+                    
+                    <div class="challenge-navigation">
+                        <button class="nav-btn back-btn" onclick="goBackFromChallenge()">뒤로가기</button>
+                        <button class="nav-btn home-btn" onclick="goHome()">홈으로</button>
                     </div>
                 </div>
             </div>
@@ -135,6 +114,7 @@
                     
                     <div class="result-buttons">
                         <button class="continue-btn" onclick="goToReflection()">성찰 질문으로</button>
+                        <button class="continue-btn" onclick="goHome()">홈으로</button>
                     </div>
                 </div>
             </div>
@@ -164,23 +144,69 @@
             </div>
         </div>
 
+        <!-- Screen 2.6: 사례 분석 화면 -->
+        <div id="case-study-screen" class="screen">
+            <div class="inner-content">
+                <div class="case-study-header">
+                    <h2>실제 사례 분석</h2>
+                    <div class="gamification-bar">
+                        <div class="progress-info">
+                            <span class="progress-label">진행률</span>
+                            <span class="progress-percentage" id="case-progress-percentage">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="case-progress-bar"></div>
+                        </div>
+                        <div class="score-info">
+                            <span class="score-label">점수</span>
+                            <span class="score-value" id="case-score">0</span>
+                            <span class="score-max">/ 300</span>
+                        </div>
+                    </div>
+                    <div class="case-progress">
+                        <span id="case-number">1 / 3</span>
+                    </div>
+                </div>
+                
+                <div class="case-study-content">
+                    <h3 id="case-title"></h3>
+                    <div class="case-description">
+                        <p id="case-content"></p>
+                    </div>
+                    
+                    <div class="case-questions" id="case-questions"></div>
+                    
+                    <div class="case-reflection" id="case-reflection"></div>
+                    
+                    <div class="case-actions">
+                        <button class="next-case-btn" id="next-case-btn" onclick="nextCase()">다음 사례</button>
+                        <div class="badge-display" id="case-badge-display"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Screen 4.0: 최종 결과 및 마무리 화면 -->
         <div id="completion-screen" class="screen">
             <div class="inner-content">
                 <div class="completion-header">
-                    <h2>챌린지 완료!</h2>
+                    <h2>학습을 완료했습니다!</h2>
                 </div>
                 
                 <div class="completion-content">
                     <div class="completion-message">
-                        <p>인공지능은 이제 우리 일상 속에서 빠질 수 없는 존재가 되었어요.
-                            음악을 추천해 주고, 숙제를 도와주고, 새로운 그림을 그려주기도 하지요.
-                            하지만 인공지능이 아무리 똑똑해 보여도, 그것은 ‘배운 대로 작동하는 도구’일 뿐이에요.
-                            생각하고 느끼고 선택하는 존재는 여전히 인간, 바로 우리입니다.</p>
+                        <p>이번 학습을 통해 여러분은 생성형 AI가 만들어낸 결과물의 <strong>한계와 가치</strong>를 직접 경험하고 분석했습니다. 
+                            텍스트 챌린지에서 AI 생성 콘텐츠의 논리적 모순을 발견하고, 
+                            사례 분석을 통해 AI 기술이 우리 사회에 미치는 <strong>사회적 영향</strong>을 구체적으로 이해했습니다.</p>
+                        
+                        <p>가장 중요한 것은, 여러분이 AI의 결과물을 <strong>비판적으로 평가</strong>하고 
+                            <strong>합리적으로 판단</strong>하는 태도를 기르기 시작했다는 점입니다. 
+                            AI는 강력한 도구이지만, 그것을 어떻게 사용할지는 결국 사람이 결정합니다.</p>
                         
                         <div class="meaningful-quote">
-                            <p><strong>AI가 아닌, 사람이 중심이 되는 세상을 만드는 힘 —<br>
-                            그 시작은 바로 여러분의 판단력과 책임감입니다.</strong></p>
+                            <p><strong>생성형 AI의 한계와 가치, 사회적 영향을 비판적으로 평가하고<br>
+                            합리적으로 판단하는 태도 — 이것이 바로 AI 리터러시입니다.</strong></p>
                         </div>
                         
                         <div class="learning-buttons">
@@ -191,9 +217,26 @@
                     
                     <div class="completion-buttons">
                         <button class="home-btn" onclick="goHome()">홈으로</button>
-                        <button class="other-challenge-btn" id="other-challenge-btn" onclick="goToOtherChallenge()">다른 챌린지 알아보기</button>
+                        <button class="other-challenge-btn" id="other-challenge-btn" onclick="goHome()">다른 활동 알아보기</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 근거 입력 모달 -->
+    <div id="reason-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>판단 근거 제시</h3>
+                <span class="close" onclick="document.getElementById('reason-modal').classList.remove('active')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>왜 그렇게 판단했는지 구체적인 근거를 설명해주세요. (최소 10자 이상)</p>
+                <textarea id="reason-input" placeholder="예: 이 문장은 저작권과 윤리 문제를 정확히 언급하고 있어서 진실로 판단했습니다. 또는 이 주장은 논리적으로 모순이 있어서 거짓으로 판단했습니다." rows="5"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="submit-reason-btn" id="submit-reason-btn">제출하기</button>
             </div>
         </div>
     </div>
@@ -220,3 +263,4 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
